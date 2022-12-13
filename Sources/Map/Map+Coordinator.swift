@@ -299,7 +299,20 @@ extension Map {
             guard let content = annotationContentByObject[ObjectIdentifier(annotation)] else {
                 return nil
             }
-            return content.view(for: mapView)
+            var annotationView = content.view(for: mapView)
+            annotationView?.isDraggable = true
+            return annotationView
+        }
+        public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
+            switch (newState) {
+            case .ending, .canceling:
+                view.dragState = .none
+//                if (mapView.annotations.count > 0) {
+//                    parent.pin.coordinate = mapView.annotations[0].coordinate
+//                    parent.centerCoordinate = parent.pin.coordinate
+//                }
+            default: break
+            }
         }
 
     }
