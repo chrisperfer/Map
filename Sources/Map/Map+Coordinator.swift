@@ -307,6 +307,7 @@ extension Map {
             switch (newState) {
             case .ending, .canceling:
                 view.dragState = .none
+                print("stopped dragging...",newState)
 //                if (mapView.annotations.count > 0) {
 //                    parent.pin.coordinate = mapView.annotations[0].coordinate
 //                    parent.centerCoordinate = parent.pin.coordinate
