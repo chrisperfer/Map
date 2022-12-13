@@ -300,7 +300,7 @@ extension Map {
                 return nil
             }
             var annotationView = content.view(for: mapView)
-            annotationView?.canShowCallout = true
+//            annotationView?.canShowCallout = true
             annotationView?.isDraggable = true
             return annotationView
         }
