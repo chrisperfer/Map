@@ -299,9 +299,11 @@ extension Map {
             guard let content = annotationContentByObject[ObjectIdentifier(annotation)] else {
                 return nil
             }
-            var annotationView = content.view(for: mapView)
-//            annotationView?.canShowCallout = true
-            annotationView?.isDraggable = true
+//            var annotationView = content.view(for: mapView)
+            var identifier = "Placemark"
+            var annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            //            annotationView?.canShowCallout = true
+            annotationView.isDraggable = true
             return annotationView
         }
         public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
